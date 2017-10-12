@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <div class="loading content-center-both">
+        <button onclick="stock()">getdata</button>
+    </div>
+    <h1>This is the page</h1>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+        function stock() {
+            $.ajax({
+                url: "http://appfeeds.moneycontrol.com/jsonapi/market/indices&ind_id=9",
+                //data: "AAPL,GOOG",
+                success: function(data) {
+                    console.log(data);
+                },
+                error: function(data) {
+                    console.log('No data');
+                }
+
+            });
+        }
+        loadData(['ram', 'sham', 'sunder', 'rahul']);
+
+        function loadData(username) {
+            if (username.length > 3) {
+                loadingMsg = 'Hello i am loading';
+                console.log(loadingMsg);
+            } else {
+                flashMsg = 'Loading Now';
+                console.log(flashMsg);
+            }
+        }
+    </script>
+</body>
+
+</html>
